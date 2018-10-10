@@ -1,7 +1,7 @@
 <?php
 
-require 'bootstrap.php';
-require 'index.view.php';
+require 'Core/bootstrap.php';
+header('Location: Views/index.view.php');
 
 
 

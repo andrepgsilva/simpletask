@@ -1,9 +1,9 @@
 <?php
 
-$config = require_once 'config.php';
+$config = require_once(dirname(__DIR__) . '/config.php');
 require_once 'helpers.php';
-require_once 'Connection.php';
-require_once 'QueryBuilder.php';
+require_once 'Database/Connection.php';
+require_once 'Database/QueryBuilder.php';
 
 $pdo = Connection::connect($config);
 
@@ -13,7 +13,7 @@ if ( isset($_POST['taskfield']) ) {
         ['description', 'completed'],
         [$_POST['taskfield'], 0]
     );
-    header('Location: index.view.php');
+    header('Location: ../index.php');
 }
 
-return (new QueryBuilder($pdo))->findAll('task');
+return $all_tasks = (new QueryBuilder($pdo))->findAll('task');
