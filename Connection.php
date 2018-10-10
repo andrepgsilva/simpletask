@@ -1,9 +1,10 @@
 <?php
 
-class Connection
+final class Connection
 {
     private function __construct() {}
-    
+    private function __clone() {}
+
     public static function connect($cfg) 
     {
         try {

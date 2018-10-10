@@ -8,11 +8,17 @@
 </head>
 <body>
     <h1>Add Tasks Page</h1>
-    <form action="#" method="POST">
+    <form action="bootstrap.php" method="POST">
         <label for="taskfield"> 
             Add Task: <input type="text" name='taskfield'>
         </label>
         <input type="submit" value="Ok">
-    </form> 
+    </form>
+    <ul>
+        <?php $all_tasks = require('bootstrap.php'); ?>
+        <?php foreach($all_tasks as $task): ?>
+            <li><?php echo $task->description; ?></li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
