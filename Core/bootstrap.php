@@ -4,6 +4,7 @@ $config = require_once(dirname(__DIR__) . '/config.php');
 require_once 'helpers.php';
 require_once 'Database/Connection.php';
 require_once 'Database/QueryBuilder.php';
+require_once 'Router.php';
 
 $pdo = Connection::connect($config);
 
