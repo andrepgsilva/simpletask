@@ -12,6 +12,7 @@ if ( isset($_POST['taskfield']) ) {
     $insertQuery = (new QueryBuilder($pdo))->insert(
         'task',
         ['description', 'completed'],
+        //ZERO(false) to unfinished tasks
         [htmlspecialchars($_POST['taskfield']), 0]
     );
     header('Location: ../index.php');

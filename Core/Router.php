@@ -10,20 +10,20 @@ class Router
     }
 
     //Verify if url exist in routes
-    private function verifyURL($url) 
+    private function verifyURL($url, $request_type) 
     {
-        if (! array_key_exists($url, $this->routes)) {
+        if (! array_key_exists($url, $this->routes[$request_type])) {
             return false;
         }
         return true;
     }
 
     //Routing process
-    public function makeRoute($url) 
+    public function makeRoute($url, $request_type) 
     {   
-        if ($this->verifyURL($url)) {
-            return $this->routes[$url];
+        if ($this->verifyURL($url, $request_type)) {
+            return $this->routes[$request_type][$url];
         }
-        throw new Exception('The address is incorrect or unavailable.');
+        header('Location: /simpletask/');
     }
 }
