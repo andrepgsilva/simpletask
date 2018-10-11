@@ -1,7 +1,10 @@
 <?php
 
 require 'Core/bootstrap.php';
-header('Location: Views/index.view.php');
+$url = $_SERVER['REQUEST_URI'];
+$routes = require('routes.php');
+require router(trim($url, '/'), $routes);
+
 
 
 

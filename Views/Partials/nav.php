@@ -1,9 +1,9 @@
 <nav>
     <ul>
         <li>
-            <a href="index.view.php">Home</a>
-            <a href="tasks.view.php">Tasks</a>
-            <a href="contact.view.php">Contact</a>
+            <a href="/simpletask/">Home</a>
+            <a href="/simpletask/page/tasks">Tasks</a>
+            <a href="/simpletask/page/contact">Contact</a>
         </li>
     </ul>
 </nav>
