@@ -10,19 +10,22 @@ class Router
     }
 
     //Verify if url exist in routes
-    private function verifyURL($url, $request_type) 
+    private function verifyURL($request) 
     {
-        if (! array_key_exists($url, $this->routes[$request_type])) {
+        if (! array_key_exists($request[0], $this->routes[$request[1]])) {
             return false;
         }
         return true;
     }
 
-    //Routing process
-    public function makeRoute($url, $request_type) 
+    public function makeRoute($request) 
     {   
-        if ($this->verifyURL($url, $request_type)) {
-            return $this->routes[$request_type][$url];
+        if ($this->verifyURL($request)) {
+            //Get request method and URL
+            $route = $this->routes[$request[1]][$request[0]];
+            list($controller, $action) = explode('@', $route);
+            $controller .= 'Controller';
+            return (new $controller)->$action();
         }
         header('Location: /simpletask/');
     }

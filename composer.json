@@ -1,0 +1,15 @@
+{
+    "name": "andre/simpletask",
+    "authors": [
+        {
+            "name": "Andre Luiz Pergentino da Silva",
+            "email": "andrepgsilva@outlook.com"
+        }
+    ],
+    "require": { 	
+	},
+
+	"autoload": {
+		"classmap": ["Core/", "App/"]	
+	}
+}

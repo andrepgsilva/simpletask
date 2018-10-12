@@ -1,11 +1,13 @@
 <?php
 //Loading classes with bootstrap.php
+require 'vendor/autoload.php';
 require 'Core/bootstrap.php';
 
 //Routing process
-require (new Router(require('routes.php')))
-        ->makeRoute(
+(new Router(require('routes.php')))
+    ->makeRoute(
+        array(
             trim($_SERVER['REQUEST_URI'], '/'),
-            $_SERVER['REQUEST_METHOD']   
-        );
-
+            $_SERVER['REQUEST_METHOD']
+        )
+    );
