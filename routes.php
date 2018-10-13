@@ -3,14 +3,12 @@
 return [
     'GET' => 
     [
-        // 'simpletask' => 'Views/index.view.php',
-        // 'simpletask/page/contact' => 'Views/contact.view.php',
-        // 'simpletask/page/tasks' => 'Views/tasks.view.php'
-        'simpletask/task/show' => 'Task@show',
-        'simpletask' => 'Page@home'
+        'simpletask' => 'Page@home',
+        'simpletask/contact' => 'Page@contact',
+        'simpletask/task/show' => 'Task@show'
     ],
     'POST' => 
     [
-
+        'simpletask/task/store' => 'Task@store'
     ]
 ];
