@@ -3,7 +3,11 @@
 $config = require_once('config.php');
 require_once 'helpers.php';
 
-$pdo = Connection::connect($config);
+//App::bind('database', Connection::connect($config));
+App::bind('database', (new QueryBuilder(
+        Connection::connect($config)
+    ))
+);
 
 if ( isset($_POST['taskfield']) ) {
     $insertQuery = (new QueryBuilder($pdo))->insert(
@@ -14,5 +18,3 @@ if ( isset($_POST['taskfield']) ) {
     );
     header('Location: ../index.php');
 }
-
-return $all_tasks = (new QueryBuilder($pdo))->findAll('task');

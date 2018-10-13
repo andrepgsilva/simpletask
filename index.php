@@ -1,5 +1,5 @@
 <?php
-//Loading classes with bootstrap.php
+//Loading classes with composer autoload
 require 'vendor/autoload.php';
 require 'Core/bootstrap.php';
 
