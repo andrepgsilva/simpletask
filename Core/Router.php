@@ -25,12 +25,9 @@ class Router
             //Get request method and URL
             $route = $this->routes[$request[1]][$request[0]];
             list($controller, $action) = explode('@', $route);
-            //$controller = "App\Controller\\{$controller}Controller";
             $controller = '\App\Controllers\\' . $controller . 'Controller';
-            // $controller .= 'Controller';
-            // dd(new PageController());
             return (new $controller())->$action();
         }
-        header('Location: /simpletask/');
+        redirectTo('/simpletask');
     }
 }

@@ -15,9 +15,7 @@ class QueryBuilder
         //Split Attributes
         $all_attr = implode(',', $attr);
         //Add '?' operator equal number of values to after put on query  
-        $val_operator = implode( ',', array_map(function($item) {
-            return $item = '?';
-        }, $values) );
+        $val_operator = substr(str_repeat('?,', count($values)), 0, -1);
         $query = "INSERT INTO {$table} " . "({$all_attr}) " . "VALUES ({$val_operator})";
         $query = $this->conn->prepare($query);
         return $query->execute($values);
