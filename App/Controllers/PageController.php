@@ -2,11 +2,13 @@
 
 class PageController 
 {
-    public function home() {
-        require 'Views/index.view.php';
+    public function home() 
+    {
+        view('index');   
     }
 
-    public function contact() {
-        require 'Views/contact.view.php';
+    public function contact() 
+    {
+        view('contact');
     }
 }

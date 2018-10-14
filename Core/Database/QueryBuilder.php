@@ -19,7 +19,7 @@ class QueryBuilder
         }, $values) );
         $query = "INSERT INTO {$table} " . "({$all_attr}) " . "VALUES ({$val_operator})";
         $query = $this->conn->prepare($query);
-        $query->execute($values);
+        return $query->execute($values);
     }
 
     public function findAll($table) 
