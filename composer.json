@@ -10,6 +10,13 @@
 	},
 
 	"autoload": {
-		"classmap": ["Core/", "App/"]	
+        "psr-4": {
+            "App\\" : "App/",
+            "Core\\" : "Core/"
+        },
+        "files": [
+            "Core/bootstrap.php",
+            "Core/helpers.php"
+        ]
 	}
 }

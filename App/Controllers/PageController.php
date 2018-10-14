@@ -1,10 +1,11 @@
 <?php
+namespace App\Controllers;
 
 class PageController 
 {
     public function home() 
     {
-        view('index');   
+        view('index');
     }
 
     public function contact() 

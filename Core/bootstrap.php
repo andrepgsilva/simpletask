@@ -1,6 +1,7 @@
 <?php
 
-require_once 'helpers.php';
+namespace Core;
+use Core\Database\{QueryBuilder, Connection};
 
 App::bind('config', require_once('config.php'));
 

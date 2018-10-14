@@ -1,4 +1,5 @@
 <?php
+namespace Core\Database;
 
 class QueryBuilder 
 {
@@ -26,6 +27,6 @@ class QueryBuilder
     {
         $query = $this->conn->prepare("SELECT * FROM {$table}");
         $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        return $query->fetchAll(\PDO::FETCH_OBJ);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 //Loading classes with composer autoload
 require 'vendor/autoload.php';
-require 'Core/bootstrap.php';
+use Core\Router;
 
 //Routing process
 (new Router(require('routes.php')))

@@ -1,4 +1,5 @@
 <?php
+//Define all Routes HERE!
 
 return [
     'GET' => 

@@ -1,4 +1,6 @@
 <?php
+namespace App\Controllers;
+use App\Models\TaskModel;
 
 class TaskController
 {

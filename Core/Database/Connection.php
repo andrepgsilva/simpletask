@@ -1,4 +1,5 @@
 <?php
+namespace Core\Database;
 
 final class Connection
 {
@@ -9,14 +10,14 @@ final class Connection
     {
         try {
             
-            return $pdo = new PDO
+            return $pdo = new \PDO
             ( 
                 $cfg['db']['type'] .
                 ":host={$cfg['db']['host']}; dbname={$cfg['db']['name']}" ,
                 $cfg['db']['username'] , $cfg['db']['password'] ,
                 $cfg['db']['options']
             );
-        } catch (PDOException $error) {
+        } catch (\PDOException $error) {
             echo $error->getMessage();
         }
     }
