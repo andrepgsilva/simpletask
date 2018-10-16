@@ -6,7 +6,7 @@ Must be in the directory App/Controller, App/Model
 Note: Must follow the name convention: exampleController/exampleModel  
 
 ## Views
-Must be in the directory Views
+Must be in the directory Views  
 Note: Must follow the name convention: example.view.php
 
 ## Database Configuration
