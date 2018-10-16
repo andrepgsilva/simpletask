@@ -16,4 +16,22 @@ class TaskController
         (new TaskModel())->save();
         redirectTo('simpletask');
     }
+
+    public function finish($params) 
+    {
+        (new TaskModel())->finish($params['id']);
+        redirectTo('/simpletask/task/show');
+    }
+
+    public function unfinished($params) 
+    {
+        (new TaskModel())->unfinished($params['id']);
+        redirectTo('/simpletask/task/show');
+    }
+
+    public function delete($params)
+    {
+        (new TaskModel())->delete($params['id']);
+        redirectTo('/simpletask/task/show');
+    }
 }

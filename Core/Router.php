@@ -1,5 +1,6 @@
 <?php
 namespace Core;
+use Core\Request;
 
 class Router 
 {
@@ -10,23 +11,28 @@ class Router
         $this->routes = $routesFile;
     }
 
-    //Verify if url exist in routes
-    private function verifyURL($request) 
+    //Builds the way to control
+    private function buildControllerPath($request)
     {
-        if (! array_key_exists($request[0], $this->routes[$request[1]])) {
-            return false;
-        }
-        return true;
-    }
+        //Get request method and URL
+        $route = $this->routes[$request[1]][$request[0]];
+        list($controller, $action) = explode('@', $route);
+        //Make a way to controller
+        $controller = '\App\Controllers\\' . $controller . 'Controller';
+        return compact('controller', 'action');
+    } 
 
     public function makeRoute($request) 
     {   
-        if ($this->verifyURL($request)) {
-            //Get request method and URL
-            $route = $this->routes[$request[1]][$request[0]];
-            list($controller, $action) = explode('@', $route);
-            $controller = '\App\Controllers\\' . $controller . 'Controller';
-            return (new $controller())->$action();
+        if (Request::verifyURL($request, $this->routes)) {
+            //Get Controller elements(controller, action)
+            extract($this->buildControllerPath($request));
+            $parameters = Request::buildParameters($request[2]);
+            try {
+                return (new $controller())->$action();
+            } catch(\Error $err) {
+                return (new $controller())->$action($parameters);
+            }
         }
         redirectTo('/simpletask');
     }

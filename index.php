@@ -7,7 +7,8 @@ use Core\Router;
 (new Router(require('routes.php')))
     ->makeRoute(
         array(
-            trim($_SERVER['REQUEST_URI'], '/'),
-            $_SERVER['REQUEST_METHOD']
+            trim(explode('?', $_SERVER['REQUEST_URI'])[0], '/'),
+            $_SERVER['REQUEST_METHOD'],
+            $_SERVER['QUERY_STRING']   
         )
     );
