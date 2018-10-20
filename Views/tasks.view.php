@@ -10,11 +10,11 @@
                 <?php echo $task->description; ?>
             </li>
             <?php if (! $status): ?>
-                <a href="/simpletask/task/finish/?id=<?php echo $id ?>">Finish Task</a>
+                <a href="/simpletask/task/finish/?id=<?= $id ?>">Finish Task</a>
             <?php else: ?>
-                <a href="/simpletask/task/unfinished/?id=<?php echo $id ?>">Unfinished Task</a>
+                <a href="/simpletask/task/unfinished/?id=<?= $id ?>">Unfinished Task</a>
             <?php endif; ?>
-            <a href="/simpletask/task/delete/?id=<?php echo $id ?>">Delete Task</a>
+            <a href="/simpletask/task/delete/?id=<?= $id ?>">Delete Task</a>
         <?php endforeach; ?>
     </ul>
 <?php require('Partials/footer.php');
